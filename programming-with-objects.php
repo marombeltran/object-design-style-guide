@@ -1,8 +1,5 @@
 <?php
 
-use function Sodium\version_string;
-
-
 // 1.1 A minimun viable class
 class Foo
 {
