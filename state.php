@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Immutable as JetBrainsImmutable;
+
 /* An object can contain data. This data will be stored in properties. A property will have a
  * name and a type, and it can be populated at any moment after instantiation. A common
  * place for assigning values to properties is inside the constructor.
@@ -157,7 +159,34 @@ class Mutable
     }
 }
 
-class Inmutable
+class Immutable
 {
-    
+    private int $someNumber;
+
+    public function __construct(int $initialNumber)
+    {
+        $this->someNumber = $initialNumber;
+    }
+
+    public function increase(): Immutable
+    {
+        return new Immutable($this->someNumber + 1);
+    }
 }
+
+/* Calling increase() on Mutable will change
+ // the state of obj by changing the value
+ // of its someNumber property.
+ */
+$obj = new Mutable(10);
+$obj->increase();
+
+/* Calling increase() on Immutable doesn’t change the
+ // state of object2. Instead, we receive a new instance
+ // with the value of someNumber increased.
+ */
+$obj = new Immutable(10);
+$obj = $obj->increase();
+
+
+
