@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Immutable as JetBrainsImmutable;
-
 /* An object can contain data. This data will be stored in properties. A property will have a
  * name and a type, and it can be populated at any moment after instantiation. A common
  * place for assigning values to properties is inside the constructor.
