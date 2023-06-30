@@ -95,7 +95,5 @@ final class Bar
 {}
 
 class Baz extends Bar // Won't work
-{
-
-}
+{ }
 
