@@ -32,5 +32,14 @@
  *   it's better to use polymorphism with an interface parameter type.
  */
     
+interface Foo
+{}
 
+final class Bar
+{
+    public function bar(Foo $foo): void
+    {
+        $foo->someMethod();
+    }
+}
 
