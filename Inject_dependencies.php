@@ -57,4 +57,14 @@ final class FileLogger implements Logger
 $logger = new FileLogger(new Formatter());
 $logger->log('A message');
 
+/* Making every dependency available as a constructor argument will make the service
+ * ready for use immediately after instantiation. No further setup will be required, and
+ * you can’t accidentally forget to provide a dependency.
+ *
+ * Sometimes a service needs some configuration values, like a location for storing
+ * files or credentials for connecting to an external service. Inject such configuration val-
+ * ues as constructor arguments too, as in the following listing.
+ */
+
+
 
