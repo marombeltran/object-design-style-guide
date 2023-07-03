@@ -149,8 +149,10 @@ final class Driver
         // 
     }
 
-    public function connect(): void
-    {}
+    public function connect(): Link
+    {
+        return new Link(); 
+    }
 }
 
 final class Link
