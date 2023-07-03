@@ -67,4 +67,108 @@ $logger->log('A message');
  */
 
 
+/* Exercises
+ * Rewrite the constructor of the MySQLTableGateway class in such a way that the
+ * connection information can be passed as an object:
+ */
+final class MySQLTableGateway
+{
+    public function __construct(
+        string $host,
+        int $port,
+        string $username,
+        string $password,
+        string $database,
+        string $table
+    ) {
+        // ...
+    }
+}
 
+// Solution
+final class Credentials
+{
+    private string $host;
+    private int $port;
+    private string $username;
+    private string $password;
+    private string $database;
+    private string $table;
+
+    public function __construct(
+        string $host,
+        int $port,
+        string $username,
+        string $password,
+        string $database,
+        string $table)
+    {
+        $this->host = $host;
+        $this->port = $port;
+        $this->username = $username;
+        $this->password = $password;
+        $this->database = $database;
+        $this->table = $table;
+    }
+
+    public function host(): string
+    {
+        return $this->host;
+    }
+
+    public function port(): string
+    {
+        return $this->port;
+    }
+
+    public function username(): string
+    {
+        return $this->username;
+    }
+
+    public function password(): string
+    {
+        return $this->password;
+    }
+
+    public function database(): string
+    {
+        return $this->database;
+    }
+
+    public function table(): string
+    {
+        return $this->table;
+    }
+}
+
+final class Driver
+{
+    public function __construct(string $driverName, Credentials $credentials)
+    {
+        // 
+    }
+
+    public function connect(): void
+    {}
+}
+
+final class Link
+{}
+
+final class MySQLTableGateway
+{
+    private Credentials $credentials;
+    private Driver $driver;
+
+    public function __construct(Driver $driver, Credentials $credentials)
+    {
+        $this->driver = $driver;
+        $this->credentials = $credentials;
+    }
+
+    public function connect(): Link
+    {
+        return $this->driver->connect();
+    }
+}
