@@ -144,7 +144,7 @@ final class Credentials
 
 final class Driver
 {
-    public function __construct(string $driverName)
+    public function __construct(string $driverName, Credentials $credentials)
     {
         // 
     }
@@ -158,7 +158,7 @@ final class Driver
 final class Link
 {}
 
-class MySQLTableGateway
+final class MySQLTableGateway
 {
     private Credentials $credentials;
     private Driver $driver;
@@ -174,9 +174,3 @@ class MySQLTableGateway
         return $this->driver->connect();
     }
 }
-
-$obj = new MySQLTableGateway(
-    new Driver('MySQL'),
-    new Credentials('', 3306, '', '', '', '')
-);
-
