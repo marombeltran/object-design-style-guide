@@ -174,3 +174,9 @@ final class MySQLTableGateway
         return $this->driver->connect();
     }
 }
+
+$obj = new MySQLTableGateway(
+    new Driver('MySQL'),
+    new Credentials('', 3306, '', '', '', '')
+);
+
